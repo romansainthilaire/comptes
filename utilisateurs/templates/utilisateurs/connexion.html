@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'utilisateurs/base.html' %}
+
+{% block titre %}Connexion{% endblock titre %}
+
+{% block contenu %}
+
+<h1>Connectez vous</h1>
+<form method="POST">
+      {% csrf_token %}
+      <label for="nom_utilisateur">Nom d'utilisateur : </label>
+      <input type="text" name="nom_utilisateur" placeholder="Nom d'utilisateur">
+      <label for="mot_de_passe">Mot de passe : </label>
+      <input type="password" name="mot_de_passe">
+      <input type="submit" value="Connexion">
+</form>
+
+{% endblock contenu %}

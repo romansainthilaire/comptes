@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'utilisateurs/base.html' %}
+
+{% block titre %}Inscription{% endblock titre %}
+
+{% block contenu %}
+
+{% if inscrit %}
+<h1>Merci pour votre inscription</h1>
+{% else %}
+<h1>Inscrivez vous !</h1>
+<h3>Formulaire d'inscription :</h3>
+<form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ user_form.as_p }}
+      {{ profil_utilisateur_form.as_p }}
+      <button type="submit">Créer</button>
+</form>
+{% endif %}
+
+{% endblock contenu %}

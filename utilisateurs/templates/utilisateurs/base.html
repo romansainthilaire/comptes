@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titre %}{% endblock titre %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    {% if user.is_authenticated %}
+    <p>(Connecté : {{ user.username }})</p>
+    <a href="{% url 'utilisateurs:index' %}">Acceuil</a>
+    <a href="{% url 'utilisateurs:profil' user.pk %}">Profil</a>
+    <a href="{% url 'utilisateurs:deconnexion' %}">Deconnexion</a>
+    {% else %}
+    <a href="{% url 'utilisateurs:index' %}">Acceuil</a>
+    <a href="{% url 'utilisateurs:connexion' %}">Connexion</a>
+    <a href="{% url 'utilisateurs:inscription' %}">Inscription</a>
+    {% endif %}    
+
+    {% block contenu %}{% endblock contenu %}
+    
+</body>
+</html>

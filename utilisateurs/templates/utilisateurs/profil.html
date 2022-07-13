@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'utilisateurs/base.html' %}
+
+{% block titre %}Hello{% endblock titre %}
+
+{% block contenu %}
+
+<p>Nom d’utilisateur : {{ user.username }}</p>
+<p>Email : {{ user.email }}</p>
+<p>Site portfolio : <a href="{{ profil.site_portfolio }}" target="_blank">{{ profil.site_portfolio }}</a></p>  
+<img src="{{ profil.photo_de_profil.url }}" width="200">      
+
+{% endblock contenu %}
